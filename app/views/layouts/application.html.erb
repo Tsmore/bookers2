@@ -21,12 +21,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link text-light" href="/"><i class="fa-solid fa-home"></i> Home</a>
-            </li>
             <% if user_signed_in? %>
             <li class="nav-item">
-              <a class="nav-link text-light" href="users/index"><i class="fa-solid fa-users"></i>Users</a>
+              <%= link_to user_path(current_user), class: "nav-link text-light" do %>
+                <i class="fa-solid fa-home"></i> Home
+              <% end %>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/users"><i class="fa-solid fa-users"></i>Users</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="/books"><i class="fa-solid fa-book"></i>Books</a>
@@ -35,6 +36,9 @@
               <a class="nav-link text-light" data-method="delete" href="users/sign_out"><i class="fa-solid fa-sign-out-alt"></i>Log out</a>
             </li>
               <% else %>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="/"><i class="fa-solid fa-home"></i> Home</a>
+            </li>
             <li class="nav-item">
               <a class="nav-link text-light" href="homes/about"><i class="fa-solid fa-link"></i>About</a>
             </li>
