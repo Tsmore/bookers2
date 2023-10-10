@@ -5,7 +5,7 @@
         <table>
           <thread>
                 <tr>
-                  <th><%= image_tag current_user.image.variant(resize: "100x100!") if current_user.image.attached? %></th>
+                  <th><%= image_tag current_user.get_profile_image(100,100) %></th>
                 </tr>
           </thread>
           <tbody>
@@ -19,7 +19,7 @@
             </tr>
           </tbody>
         </table>
-        <%= link_to "users/:id/edit", class: "btn btn-outline-secondary btn-block" do %>
+        <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
           <i class="fa-solid fa-user-gear"></i>
         <% end %>
         <h2>New Book</h2>
