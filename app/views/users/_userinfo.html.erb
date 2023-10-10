@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col-md-3">
       <h2>User Info</h2>
         <div>
           <%= image_tag current_user.image.variant(resize: "100x100!"), class: "rounded-circle" if current_user.image.attached? %>
