@@ -1,8 +1,66 @@
 <h1>Users#show</h1>
-<% if @user.errors.any? %>
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User Info</h2>
+      <%= image_tag current_user.get_profile_image(100,100) %>
+      <table>
+        <tbody>
+          <tr></tr>
+          <tr>
+            <th>name</th>
+            <th><%= current_user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th><%= current_user.introduction %></th>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row">
+        <div>
+          <%= link_to edit_user_path(current_user), class: "btn btn-outline-secondary btn-block" do %>
+          <i class="fa-solid fa-user-gear"></i>
+          <% end %>
+        </div>
+      </div>
+      <h2>New Book</h2>
+          <%= form_with model: @book, html: {class: 'form-horizontal'} do |f| %>
+          <div class="form-group">
+            <%= f.label :Title, class: "control-label" %>
+            <%= f.text_field :title, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :Opinion, class: "control-label" %>
+            <%= f.text_area :body, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit 'Create Book', class: "btn btn-success" %>
+          </div>
+          <% end %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Books</h2>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Title</th>
+            <th>Opinion</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                <div><%= image_tag current_user.get_profile_image(100,100) %></div>
+                <div><%= link_to current_user.name, user_path(current_user) %></div>
+              </td>
+              <td><%= link_to book.title, book_path(book) %></td>
+              <td><%= book.body %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>

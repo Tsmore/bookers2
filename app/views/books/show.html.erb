@@ -1,2 +1,19 @@
 <h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<%= render 'layouts/userinfo' %>
+<%= render 'layouts/newbook' %>
+
+<div class="col-md-8">
+  <h2>Book Detail</h2>
+  <table>
+    <tr>
+      <td><%= link_to @book.title, book_path(@book) %></td>
+      <td><%= @book.body %></td>
+    </tr>
+    <tr>
+      <% if @book.user_id == current_user.id %>
+        <%= link_to 'Edit', edit_book_path(@book.id), class: "link-class" %> |
+        <%= link_to 'Destroy', book_path(@book), method: :delete, data: { confirm: '本当に消しますか?' }, class: "link-class" %>
+      <% end %>
+    </tr>
+  </table>
+</div>
