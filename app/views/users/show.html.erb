@@ -2,18 +2,18 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <%= render 'layouts/user_info' %>
+      <%= render 'layouts/user_info', user:@user %>
       <%= render 'layouts/new_book', book:@book %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
-      <table>
+      <table class="table">
         <thead>
           <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
-            <th colspan="3"></th>
+            <th scope="col"></th>
+            <th scope="col">Title</th>
+            <th scope="col">Opinion</th>
+            <th colespan="3"></th>
           </tr>
         </thead>
         <tbody>
@@ -21,7 +21,6 @@
             <tr>
               <td>
                 <div><%= image_tag current_user.get_profile_image(100,100) %></div>
-                <div><%= link_to current_user.name, user_path(current_user) %></div>
               </td>
               <td><%= link_to book.title, book_path(book) %></td>
               <td><%= book.body %></td>
