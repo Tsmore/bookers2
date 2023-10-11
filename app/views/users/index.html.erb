@@ -3,26 +3,24 @@
   <div class="row">
     <div class="col-md-3">
       <%= render 'layouts/user_info' %>
-      <%= render 'layouts/new_book' %>
+      <%= render 'layouts/new_book', book:@book %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Users</h2>
-      <table>
+      <table class="table">
         <thead>
           <tr>
-            <th></th>
-            <th>image</th>
-            <th>name</th>
-            <th colspan="3"></th>
+            <th scope="col">image</th>
+            <th scope="col">name</th>
+            <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td>
-                <div><%= image_tag user.get_profile_image(100,100) %></div>
-                <div><%= user.name %></div>
-              </td>
+              <th scope="row"><%= image_tag user.get_profile_image(100,100) %></th>
+              <td><%= user.name %></td>
+              <td><%= link_to 'Show', user_path(user) %></td>
             </tr>
           <% end %>
         </tbody>
