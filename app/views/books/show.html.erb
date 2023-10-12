@@ -1,9 +1,8 @@
-<h1>Books#show</h1>
 <div class="container">
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-md-3">
-      <%= render 'layouts/user_info', user:current_user %>
-      <%= render 'layouts/new_book', book:@book %>
+      <%= render 'layouts/user_info', user:@book.user %>
+      <%= render 'layouts/new_book', book:Book.new %>
     </div>
     <div class="col-md-8 offset-1">
       <h2>Book Detail</h2>
