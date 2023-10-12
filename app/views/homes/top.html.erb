@@ -1,17 +1,13 @@
 <div class="container">
-  <di class="row">
+  <div class="row">
     <div class="col-11 col-sm-10 col-ls-8 col-xl-6 mx-auto py-4 mx-auto">
       <h1>welcome to <i class="fa-solid fa-book"></i><strong>Bookers</strong> !!</h1>
       <p>In <i class="fa-solid fa-book"></i><strong>Bookers</strong>,</p>
       <p>you can share and expchange your opinions , impressions , and emotions</p>
-      <a>about various books!</a>
+      <p>about various books!</p>
       <div class="col-10 mx-auto">
-        <%= link_to user_session_path, class: "text-decoration-none" do %>
-          <button type="button" class="btn btn-info btn-sm btn-block mb-3">Log in</button>
-        <% end %>
-        <%= link_to new_user_registration_path, class: "text-decoration-none" do %>
-          <button type="button" class="btn btn-success btn-sm btn-block">Sign up</button>
-        <% end %>
+        <%= link_to "Log in", user_session_path, class: "text-decoration-none btn btn-info btn-sm btn-block mb-3" %>
+        <%= link_to "Sign up", new_user_registration_path, class: "text-decoration-none btn btn-success btn-sm btn-block" %>
       </div>
     </div>
   </div>

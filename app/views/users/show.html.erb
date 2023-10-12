@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row mt-3">
     <div class="col-md-3">
+      <%= render 'layouts/errormessage', object:@book %>
       <%= render 'layouts/user_info', user:@user %>
       <%= render 'layouts/new_book', book:@book %>
     </div>
@@ -19,7 +20,11 @@
           <% @books.each do |book| %>
             <tr>
               <td>
-                <div><%= image_tag book.user.get_profile_image(80,80) %></div>
+                <div>
+                  <%= link_to user_path(book.user) do %>
+                    <%= image_tag book.user.get_profile_image(80,80) %>
+                  <% end %>
+                  </div>
               </td>
               <td><%= link_to book.title, book_path(book) %></td>
               <td><%= book.body %></td>

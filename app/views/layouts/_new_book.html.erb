@@ -1,11 +1,12 @@
+<%= render 'layouts/errormessage', object:@book %>
 <h2 class="mt-3">New book</h2>
 <%= form_with model: book, html: {class: 'form-horizontal'} do |f| %>
 <div class="form-group">
-  <%= f.label :Title, class: "control-label" %>
+  <h4 class="control-label">Title</h4>
   <%= f.text_field :title, class: "form-control" %>
 </div>
 <div class="form-group">
-  <%= f.label :Opinion, class: "control-label" %>
+  <h4 class="control-label">Opinion</h4>
   <%= f.text_area :body, class: "form-control" %>
 </div>
 <div class="form-group">
