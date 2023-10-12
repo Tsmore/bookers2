@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :is_matching_login_user, only: [:edit, :update]
+  before_action :authenticate_user!, only: [:index, :show, :edit]
 
   def index
     @book = Book.new
