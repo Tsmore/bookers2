@@ -1,22 +1,22 @@
 <% if users.exists? %>
-  <% users.each do |user| %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>name</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= user.name %></td>
-          <td>Followings: <%= user.followings.count %></td>
-          <td>Followers: <%= user.followers.count %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td>Followings: <%= user.followings.count %></td>
+        <td>Followers: <%= user.followers.count %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 <% else %>
   <p>You hane no followers yet</p>
 <% end %>
