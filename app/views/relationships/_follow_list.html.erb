@@ -2,7 +2,9 @@
   <table class="table">
     <thead>
       <tr>
+        <th>image</th>
         <th>name</th>
+        <th></th>
         <th></th>
         <th></th>
       </tr>
@@ -10,13 +12,15 @@
     <tbody>
     <% users.each do |user| %>
       <tr>
+        <td><%= image_tag user.get_profile_image(50,50) %></td>
         <td><%= user.name %></td>
-        <td>Followings: <%= user.followings.count %></td>
+        <td>Following: <%= user.followings.count %></td>
         <td>Followers: <%= user.followers.count %></td>
+        <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
 <% else %>
-  <p>You hane no followers yet</p>
+  <p>You hane no users yet</p>
 <% end %>

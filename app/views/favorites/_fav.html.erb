@@ -1,11 +1,11 @@
 <% if book.favorited_by?(current_user) %>
   <%= link_to book_favorites_path(book), method: :delete, class: "d-inline-flex align-items-center text-decoration-none" do %>
-    <i class="fa-solid fa-star"></i>
+    Likes: <i class="fa-solid fa-face-smile"></i>
     <span><%= book.favorites.count %></span>
   <% end %>
 <% else %>
   <%= link_to book_favorites_path(book), method: :create, class: "d-inline-flex align-items-center text-decoration-none" do %>
-    <i class="fa-regular fa-star"></i>
+    Likes: <i class="fa-regular fa-face-smile"></i>
     <span><%= book.favorites.count %></span>
   <% end %>
 <% end %>
