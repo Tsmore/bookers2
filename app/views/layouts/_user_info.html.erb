@@ -1,19 +1,35 @@
 <h2>User Info</h2>
-      <%= image_tag user.get_profile_image(100,100) %>
-        <table class="table">
-          <tbody>
-            <tr>
-              <th scope="row">name</th>
-              <td><%= user.name %></td>
-            </tr>
-            <tr>
-              <th scope="row">introduction</th>
-              <td><%= user.introduction %></td>
-            </tr>
-          </tbody>
-        </table>
-        <div>
-          <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
-          <i class="fa-solid fa-user-cog"></i>
-          <% end %>
-        </div>
+<%= image_tag user.get_profile_image(100,100) %>
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">name</th>
+        <td><%= user.name %></td>
+      </tr>
+      <tr>
+        <th scope="row">introduction</th>
+        <td><%= user.introduction %></td>
+      </tr>
+      <tr>
+        <th scope="row">follows</th>
+        <td><%= link_to user.followings.count, user_followings_path(user) %></td>
+      </tr>
+      <tr>
+        <th scope="row">followers</th>
+        <td><%= link_to user.followers.count, user_followers_path(user) %></td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <% if current_user == user %>
+      <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block" do %>
+      <i class="fa-solid fa-user-cog"></i>
+      <% end %>
+    <% else %>
+      <% if current_user.following?(user) %>
+        <%= link_to "Following", user_relationships_path(user.id), method: :delete, class: "btn btn-outline-dark" %>
+      <% else %>
+        <%= link_to "Follow", user_relationships_path(user.id), method: :post, class: "btn btn-outline-info" %>
+      <% end %>
+    <% end %>
+  </div>
