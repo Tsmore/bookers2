@@ -19,6 +19,11 @@
         <%= message %>
       </div>
     <% end %>
+    <div class="d-flex">
+      <div class="ml-auto">
+        <%= render 'searches/search' %>
+      </div>
+    </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
