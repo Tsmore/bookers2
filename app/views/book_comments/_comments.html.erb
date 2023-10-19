@@ -1,6 +1,6 @@
 <% if book.user != current_user %>
   <%= form_with model: book_comment, url: book_book_comments_path(book), local: false do |f| %>
-    <%= f.text_area :comment, rows: '5', placeholder: 'comment here', class: "w-50 d-block" %>
+    <%= f.text_area :comment, rows: '5', placeholder: 'Comment here', class: "w-50 d-block" %>
     <%= f.submit 'Submit', class: "btn btn-success mt-3" %>
   <% end %>
 <% end %>
